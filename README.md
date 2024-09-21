@@ -9,7 +9,7 @@
 ## Installation
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/alraddady/LLMs.git
+    git clone https://github.com/alraddady/LLMs-Explain-LLMs.git
     ```
 2. **Navigate to the Directory**
     ```bash
