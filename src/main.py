@@ -1,9 +1,11 @@
 from openai import OpenAI
 from autogen import GroupChat, GroupChatManager, ConversableAgent
 
+# To run the agents locally in ollama
 client = OpenAI(base_url='http://localhost:11434/v1',
                 api_key='ollama')
 
+# LLM configuration
 llm_config = {
     "config_list": [{
         "model": "llama3.1",
@@ -13,6 +15,7 @@ llm_config = {
     }]
 }
 
+# Define the agents
 manager_agent = ConversableAgent(
     name="ManagerAgent",
     system_message=(
@@ -92,7 +95,6 @@ agents = [
 group_chat = GroupChat(
     agents=agents,
     messages=[],
-    max_round=10,
     send_introductions=True,
 )
 
@@ -114,11 +116,16 @@ try:
         group_chat_manager,
         message=initial_message_content,
     )
+
+    full_transcript = ""
+    for message in group_chat.messages:
+        sender = message.get('sender', 'Unknown')
+        content = message.get('content', '')
+        full_transcript += f"{sender}:\n{content}\n\n"
+
+    with open('transcript.txt', 'w', encoding='utf-8') as f:
+        f.write(full_transcript)
+
+    print("Conversation transcript has been saved to transcript.txt.")
 except Exception as e:
     print(f"An error occurred during the group chat: {e}")
-
-print("\n--- Conversation Transcript ---\n")
-for message in group_chat.messages:
-    sender = message.get('sender', 'Unknown')
-    content = message.get('content', '')
-    print(f"{sender}:\n{content}\n")
