@@ -1,5 +1,5 @@
 # LLMs Explain LLMs
-**LLMs Explain LLMs** is designed to create a comprehensive course about Large Language Models (LLMs) using LLMs themselves. This project leverages AI agents to collaboratively develop detailed educational content, ensuring high-quality and up-to-date information tailored for learners and developers.
+**LLMs Explain LLMs** is a project designed to create a comprehensive course on Large Language Models (LLMs), using LLMs themselves to generate the content. The project aims to deliver high-quality, up-to-date material, offering an innovative approach to AI-driven education.
 
 ## Requirements
 1. **Install Ollama:** Download and install the latest version of [Ollama](https://ollama.com/).
